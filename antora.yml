@@ -1,0 +1,7 @@
+name: onkodok
+version: 0.0.1-RC
+title: Felles kreftjournal
+start_page: ROOT:index.adoc
+nav: 
+  - modules/ROOT/nav.adoc
+  

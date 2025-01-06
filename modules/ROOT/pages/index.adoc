@@ -1,0 +1,21 @@
+= Dokumentasjon for felles kreftjournal 
+
+Felles kreftjournal er et inter-regionalt samarbeid i Norge for å utvikle og ta i bruk en felles strukturert journal for kreftområdet. 
+
+Her finner du dokumentasjon av kliniske modeller som er utviklet i prosjektet. 
+
+== Templater 
+
+include::partial$utdanningssammendrag.adoc[leveloffset=+2]
+
+include::partial$stimulantia.adoc[leveloffset=+2]
+
+include::partial$sosialt_nettverk.adoc[leveloffset=+2]
+
+include::partial$arbeidssammendrag.adoc[leveloffset=+2]
+
+
+
+
+
+

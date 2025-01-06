@@ -1,0 +1,18 @@
+site:
+  title: Felles Kreftjournal
+  start_page: onkodok::index.adoc
+content:
+  sources:
+  - url: .
+    branches: HEAD    
+asciidoc:
+  attributes:
+    page-pagination: ''
+    hide-uri-scheme: '@'
+  sourcemap: true
+urls:
+  latest_version_segment: ''
+ui:
+  bundle:
+    url: https://github.com/bjornna/antora-ui-bifrost/releases/download/v0.8.0/ui-bundle.zip
+    snapshot: true

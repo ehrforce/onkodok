@@ -1,0 +1,3 @@
+= Dokumentasjon for felles kreftjournal 
+
+Dette prosjektet vil inneholde dokumentasjon av kliniske modeller for felles kreftjournal. 
