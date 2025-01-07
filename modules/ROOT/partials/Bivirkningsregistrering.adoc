@@ -1,0 +1,110 @@
+= Bivirkningsregistrering
+
+
+== Metadata
+
+
+TemplateId:: Bivirkningsregistrering
+
+
+Archetype:: openEHR-EHR-SECTION.adhoc.v1
+
+
+
+
+:toc:
+
+
+
+
+== Bivirkningsregistrering
+== Bivirkning-Ekslusjon
+[options="header", cols="3,3,5,5,30"]
+|====
+|NodeId|Attr.|RM Type| Name |Description
+5+a|*Bivirkning-Ekslusjon* + 
+EVALUATION: _openEHR-EHR-EVALUATION.exclusion_specific.v1_
+|at0002| 0..1| DV_TEXT | Eksklusjonsutsagn
+a|
+* Ingen relevante bivirkninger
+
+
+Utsagnet er ment for å brukes sammen med dataelementet "Ekskludert konsept". For eksempel: Dataelementet legger til rette for registrering av utsagn som: "Ingen tidligere..." hvor "Ekskludert konsept" navngir det spesifikke problemet, diagnosen, substansen, prosedyren eller legemiddelet. Dersom elementet "Ekskludert konsept" brukes for å registrere et prekoordinert uttrykk som f.eks. "Ingen kjent diabetes i familien" er dette elementet overflødig.
+|at0003| 1..1| DV_CODED_TEXT | Problem/diagnose
+a|
+* Complication of procedure (SNOMED-CT: 116224001)
+|at0012| 0..1| DV_TEXT | Kommentar
+a|
+|====
+== Problem/diagnose
+[options="header", cols="3,3,5,5,30"]
+|====
+|NodeId|Attr.|RM Type| Name |Description
+5+a|*Problem/diagnose* + 
+EVALUATION: _openEHR-EHR-EVALUATION.problem_diagnosis.v1_
+
+
+Det er i praksis ikke lett å oppnå et klart skille mellom et problem og en diagnose. I klinisk dokumentasjon med denne arketypen ses problem og diagnose som et kontinuum, med økende krav til detaljer og støttende evidens for å underbygge en diagnose.
+|at0002| 1..1| DV_CODED_TEXT | Problem/diagnosenavn
+a|
+* Complication of procedure (SNOMED-CT: 116224001)
+
+
+Koding av navnet på problemet eller diagnosen med en terminologi er foretrukket, der det er mulig.
+|at0009| 0..1| DV_TEXT | Klinisk beskrivelse
+a|
+
+
+Brukes til å gi bakgrunn og kontekst, inkludert utvikling, episoder eller forverringer, fremgang og alle andre relevante detaljer, om problemet eller diagnosen.
+|at0078| 0..1| DV_TEXT | Årsak
+a|
+
+
+Også kjent som 'etiologi'. Det anbefales å kode "Årsak" med en ekstern terminologi dersom det er mulig.
+5+a|*Common Terminology Criteria for Adverse Events (CTCAE)* + 
+CLUSTER: _openEHR-EHR-CLUSTER.ctcae.v1_
+
+
+Tidligere kjent som Common Toxicity Criteria (CTC).
+
+Kodeverkene som benyttes i registreringen legges inn i kjøretid (runtime) via script 
+|at0001| 0..1| DV_CODED_TEXT | Kategori
+a|
+* Blood and lymphatic system disorders (MEDRA: 1001)
+
+
+Dette elementet identifiserer et anatomisk eller fysiologisk system, etiologi eller formål.
+
+
+|at0002| 1..1| DV_CODED_TEXT | Term
+a|
+* X (MEDRA: X)
+
+
+MERK at dette feltet styres fullstendig av script i skjema. Koden som er lagt inn er bare et eksempel for å sikre at datatypen blir DV_CODED_TEXT. Kodelisten produseres av SCRIPT og blir mappet til den korresponderende MedDRA-koden.
+|at0003| 1..1| DV_ORDINAL | Kategori for grad
+a|
+* 0 - Grad 0 Fravær av en uønsket hendelse eller innenfor normale verdier. Bare for CTC versjon 1 og 2.
+* 1 - Grad 1 Mild, ELLER asymptomatisk eller milde symptomer, ELLER kun kliniske eller diagnostiske observasjoner, ELLER ikke grunnlag for intervensjon.
+* 2 - Grad 2 Moderat, ELLER minimal, lokal eller indikasjon for ikke-invasiv intervensjon, ELLER begrenser alders-tilpasset ADL.
+* 3 - Grad 3 Alvorlig eller medisinsk betydningsfull, men ikke umiddelbart livstruende, ELLER indikasjon for sykehusinnleggelse eller forlengelse av sykehusopphold, ELLER invalidiserende, begrenset evne til egenomsorg og ADL.
+* 4 - Grad 4 Livstruende konsekvenser, ELLER indikasjon for øyeblikkelig intervensjon.
+* 5 - Grad 5 Død relatert til uønsket medisinsk hendelse.
+
+
+Den kliniske beskrivelsen for hver "Kategori for grad" er dokumentert i den publiserte spesifikasjonen av CTCAE v5.0. Grad 0 har ikke vært i bruk siden CTCAE v2, men er tatt med for å kunne brukes for alle versjoner av CTCAE.
+|at0020| 0..1| DV_CODED_TEXT | Beskrivelse av grad
+a|
+* A (CTCAETERM: A)
+
+
+MERK at dette feltet styres fullstendig av script i skjema. Det er lagt inn eksempel koder for å sikre at datatypen blir DV_CODED_TEXT på elementet. 
+Feltet blir  utfylt via en eksterne kilde, som en CTCAE kunnskapsbase eller en annen kilde, under kjøring av dataprogrammet (run-time).
+|at0009| 0..1| DV_TEXT | CTCAE- versjon
+a|
+* CTCAE_5.0
+|at0069| 0..1| DV_TEXT | Kommentar
+a|
+|at0070| 0..1| DV_DATE_TIME | Sist oppdatert
+|
+|====
